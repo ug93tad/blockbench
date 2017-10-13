@@ -5,7 +5,10 @@
 
   Fetch from https://github.com/bulldosers/USTORE  at branch wj-go-binding
 
-2. Setup Hyperledger
+2. Setup Hyperledger:
+  Fetch from https://github.com/ug93tad/fabric
+
+  Copy it to `$GOPATH/src/github.com/hyperledger` in the local directory
 
 3. Script configuration
 Important configurations for running the experiments are in `config.py` file. For example:
