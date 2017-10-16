@@ -10,7 +10,7 @@ DEPLOY_PATH="/data/dinhtta/hyperledger"   # <-- where the HL is store (for rocks
 CLIENT_PREFIX="/users/dinhtta/ustore-hyperledger"   # <-- where this current directory is
 HL_PATH="/data/dinhtta/src/github.com/hyperledger/fabric"  # <-- where HL source code is
 
-BUILD_PATH=HL_PATH+"../build/bin" 
+BUILD_PATH=HL_PATH+"/build/bin" 
 CLIENT_PATH=CLIENT_PREFIX+"/ycsb"
 USTOREDB_GOPATH=HL_PATH+"/ustoredb" 
 

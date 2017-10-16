@@ -257,7 +257,7 @@ int main(const int argc, const char *argv[]) {
     assert(n.valid());
     sum += n.get();
   }
-  cerr << "Done issuing op requests";
+  cerr << "Done issuing op requests" << endl;
 }
 
 string ParseCommandLine(int argc, const char *argv[],
