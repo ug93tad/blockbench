@@ -15,7 +15,7 @@ CLIENT_PATH=CLIENT_PREFIX+"/ycsb"
 USTOREDB_GOPATH=HL_PATH+"/ustoredb" 
 
 WORKLOAD_FILE="ycsb/workloads/workload_ustore.spec"
-SLEEP_TIME = 100              # <-- default running time (killed after this period)
+SLEEP_TIME = 40              # <-- default running time (killed after this period)
 
 # change these
 LOG_PATH = "/data/dinhtta/ustore-hyperledger" # <-- server log
@@ -47,7 +47,7 @@ ENV_TEMPLATE = ("CORE_PEER_ID=vp{} CORE_PEER_ADDRESSAUTODETECT=true "
 ENV_EXTRA = "CORE_PEER_DISCOVERY_ROOTNODE={}:7051"
 
 CMD="\"rm -rf {}; rm -rf {}; mkdir -p {}; mkdir -p {}; cd {}/; cp -r {}/conf .; rm -rf ustore_data; {} nohup ./peer node start --logging-level={} > {} 2>&1 &\"" 
-KILL_SERVER_CMD = "killall -KILL peer"
+KILL_SERVER_CMD = "pkill -TERM peer"
 
 CLIENT_CMD = "\"mkdir -p {}; cd {}; nohup ./driver -db hyperledger -threads {} -P {}/{} -endpoint {}:7050/chaincode -txrate {} > {}/client_{}_{}_{} 2>&1 &\""
-KILL_CLIENT_CMD = "killall -KILL driver"
+KILL_CLIENT_CMD = "sudo killall -KILL driver"
