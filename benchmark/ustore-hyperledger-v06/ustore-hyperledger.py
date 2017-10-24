@@ -10,7 +10,7 @@ from process import *
 from config import *
 
 usage = '''Usage:
-    ustore-hyperledger.py <db> <nrecords> <nops> <w ratio> <r ratio> <batch size> <ledger sample interval> <commit sample interval>
+    ustore-hyperledger.py <db> <nrecords> <nops> <w ratio> <r ratio> <batch size> <ledger sample interval>  <commit sample interval> <sleep>
     
       db:                       either ustore or rocksdb
       nrecords:                 total number of records
@@ -20,6 +20,7 @@ usage = '''Usage:
       batch size:               block size
       ledger sample interval:   Put/Get sample period [2^x -1]
       commit sample interval:   Commit sample period
+      sleep:                    how long to run the exps
     '''
 
 def run_servers(nodes, cmds):
@@ -96,10 +97,11 @@ def prepare_workload():
   os.system(cmd)
 
 if __name__ == "__main__":
-  if len(sys.argv) != 9 :
+  if len(sys.argv) != 10 :
     print usage
     sys.exit(1)
 
+  SLEEP_TIME = int(sys.argv[9])
   prepare_workload()
   for thread in THREADS:
     for txrate in TXRATES:
